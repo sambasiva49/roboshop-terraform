@@ -17,7 +17,7 @@ resource "aws_instance" "tforntend" {
   }
 }
 output "tfrontend" {
-  value = aws_instance.tforntend.public_ip
+  value = aws_instance.tforntend.ami
 }
 
 resource "aws_instance" "tmongodb" {
