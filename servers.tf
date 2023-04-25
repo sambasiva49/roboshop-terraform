@@ -10,7 +10,7 @@ output "ami" {
 }
 
 resource "aws_instance" "tforntend" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -23,7 +23,7 @@ output "tfrontend" {
 }
 
 resource "aws_instance" "tmongodb" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -32,7 +32,7 @@ resource "aws_instance" "tmongodb" {
   }
 }
 resource "aws_instance" "tcatalogue" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -41,7 +41,7 @@ resource "aws_instance" "tcatalogue" {
   }
 }
 resource "aws_instance" "tredis" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -50,7 +50,7 @@ resource "aws_instance" "tredis" {
   }
 }
 resource "aws_instance" "tuser" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -59,7 +59,7 @@ resource "aws_instance" "tuser" {
   }
 }
 resource "aws_instance" "tcart" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -68,7 +68,7 @@ resource "aws_instance" "tcart" {
   }
 }
 resource "aws_instance" "tmysql" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -77,7 +77,7 @@ resource "aws_instance" "tmysql" {
   }
 }
 resource "aws_instance" "tshipping" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -86,7 +86,7 @@ resource "aws_instance" "tshipping" {
   }
 }
 resource "aws_instance" "trabbitmq" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
@@ -95,7 +95,7 @@ resource "aws_instance" "trabbitmq" {
   }
 }
 resource "aws_instance" "tpayment" {
-  ami           = "ami-0b5a2b5b8f2be4ec2"
+  ami           = data.aws_ami.centos.image_id
 
   instance_type = "t3.micro"
 
