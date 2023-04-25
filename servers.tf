@@ -16,9 +16,7 @@ resource "aws_instance" "tforntend" {
     Name = "tfrontend"
   }
 }
-output "tfrontend" {
-  value = aws_instance.tforntend.ami
-}
+
 
 resource "aws_instance" "tmongodb" {
   ami           = data.aws_ami.centos.image_id
