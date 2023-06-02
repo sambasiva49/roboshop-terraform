@@ -5,12 +5,18 @@ data "aws_ami" "centos" {
   name_regex       = "Centos-8-DevOps-Practice"
 }
 
-
+data "aws_security_group" "allow-all" {
+  name = "allow-all"
+}
+variable "instance_type" {
+  default = "t3.small"
+}
 
 resource "aws_instance" "tforntend" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
 
   tags = {
     Name = "tfrontend"
@@ -27,8 +33,8 @@ resource "aws_route53_record" "tfrontend" {
 resource "aws_instance" "tmongodb" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tmongodb"
   }
@@ -43,8 +49,8 @@ resource "aws_route53_record" "tmongodb" {
 resource "aws_instance" "tcatalogue" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tcatalogue"
   }
@@ -60,8 +66,8 @@ resource "aws_route53_record" "tcatalogue" {
 resource "aws_instance" "tredis" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tredis"
   }
@@ -77,8 +83,8 @@ resource "aws_route53_record" "tredis" {
 resource "aws_instance" "tuser" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tuser"
   }
@@ -94,8 +100,8 @@ resource "aws_route53_record" "tuser" {
 resource "aws_instance" "tcart" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tcart"
   }
@@ -111,8 +117,8 @@ resource "aws_route53_record" "tcart" {
 resource "aws_instance" "tmysql" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tmysql"
   }
@@ -128,8 +134,8 @@ resource "aws_route53_record" "tmysql" {
 resource "aws_instance" "tshipping" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tshipping"
   }
@@ -145,8 +151,8 @@ resource "aws_route53_record" "tshipping" {
 resource "aws_instance" "trabbitmq" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "trabbitmq"
   }
@@ -162,8 +168,8 @@ resource "aws_route53_record" "trabbitmq" {
 resource "aws_instance" "tpayment" {
   ami           = data.aws_ami.centos.image_id
 
-  instance_type = "t3.micro"
-
+  instance_type = "var.instance_type"
+  vpc_security_group_ids =[data.aws_security_group.allow-all.id]
   tags = {
     Name = "tpayment"
   }
