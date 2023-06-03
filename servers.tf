@@ -12,16 +12,22 @@ variable "instance_type" {
   default = "t3.small"
 }
 
-resource "aws_instance" "tforntend" {
-  ami           = data.aws_ami.centos.image_id
+variable "components" {
+  default = ["forntend","mongodb"]
+}
 
+resource "aws_instance" "instance" {
+  count = length(var.components)
+  ami           = data.aws_ami.centos.image_id
   instance_type = var.instance_type
   vpc_security_group_ids =[data.aws_security_group.allow-all.id]
 
   tags = {
-    Name = "tfrontend"
+    Name = var.components[count.index]
   }
 }
+
+/*
 resource "aws_route53_record" "tfrontend" {
   zone_id = "Z01402092ZQKRG6BF9A8D"
   name    = "tfrontend.sambadevops.online"
@@ -182,3 +188,4 @@ resource "aws_route53_record" "tpayment" {
   ttl     = 30
   records = [aws_instance.tpayment.private_ip]
 }
+*/
